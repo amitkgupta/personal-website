@@ -6,6 +6,5 @@ applications:
   instances: 1
   memory: 64M
   routes:
-  - route: akgupta-personal-website.cfapps.io
   - route: akgupta.ca
   stack: cflinuxfs3
