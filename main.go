@@ -29,7 +29,7 @@ func main() {
 			}
 
 			switch r.URL.Path {
-			case "/404.jpg",
+			case "/404.png",
 				"/android-icon-144x144.png",
 				"/android-icon-192x192.png",
 				"/android-icon-36x36.png",
