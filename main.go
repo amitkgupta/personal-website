@@ -61,6 +61,9 @@ func main() {
 				http.ServeFile(w, r, r.URL.Path[1:])
 			case "/":
 				http.ServeFile(w, r, "index.html")
+			case "/.well-known/jwks.json"
+				w.Header().Set("Access-Control-Allow-Origin", "*")
+				http.ServeFile(w, r, "public_keys.json")
 			default:
 				w.WriteHeader(http.StatusNotFound)
 				http.ServeFile(w, r, "404.html")
