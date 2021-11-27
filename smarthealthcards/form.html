@@ -1,0 +1,319 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    <style>
+      body {
+          font-family: 'Abel';
+          margin-top: 20px;
+          margin-bottom: 40px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .form-style-5 {
+        max-width: 500px;
+        margin: 10px auto;
+        padding: 20px;
+        background: rgba(96, 128, 128, 0.2);
+        border-radius: 8px;
+      }
+      .form-style-5 fieldset {
+        border: none;
+      }
+      .form-style-5 legend {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+      }
+      .form-style-5 label {
+        display: block;
+        margin-bottom: 8px;
+      }
+      .form-style-5 .error-message {
+        color: crimson;
+      }
+      .form-style-5 input[type="text"],
+      .form-style-5 input[type="date"],
+      .form-style-5 input[type="datetime"],
+      .form-style-5 input[type="email"],
+      .form-style-5 input[type="number"],
+      .form-style-5 input[type="search"],
+      .form-style-5 input[type="time"],
+      .form-style-5 input[type="url"],
+      .form-style-5 textarea,
+      .form-style-5 select {
+        background: rgba(255,255,255,.1);
+        border: none;
+        border-radius: 4px;
+        font-size: 15px;
+        margin: 0;
+        outline: 0;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        background-color: #e8eeef;
+        color:#8a97a0;
+        -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+        margin-bottom: 30px;
+      }
+      .form-style-5 input[type="text"]:focus,
+      .form-style-5 input[type="date"]:focus,
+      .form-style-5 input[type="datetime"]:focus,
+      .form-style-5 input[type="email"]:focus,
+      .form-style-5 input[type="number"]:focus,
+      .form-style-5 input[type="search"]:focus,
+      .form-style-5 input[type="time"]:focus,
+      .form-style-5 input[type="url"]:focus,
+      .form-style-5 textarea:focus,
+      .form-style-5 select:focus {
+        background: #d2d9dd;
+      }
+      .form-style-5 select {
+        -webkit-appearance: menulist-button;
+        height:35px;
+      }
+      .form-style-5 .number {
+        background: #1abc9c;
+        color: #fff;
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        font-size: 0.8em;
+        margin-right: 4px;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+        border-radius: 15px 15px 15px 0px;
+      }
+      .form-style-5 input[type="submit"],
+      .form-style-5 input[type="button"] {
+        position: relative;
+        display: block;
+        padding: 19px 39px 18px 39px;
+        color: #FFF;
+        margin: 0 auto;
+        background: #1abc9c;
+        font-size: 18px;
+        text-align: center;
+        width: 100%;
+        border: 1px solid #16a085;
+        border-width: 1px 1px 3px;
+        margin-bottom: 10px;
+      }
+      .form-style-5 input[type="submit"]:hover,
+      .form-style-5 input[type="button"]:hover {
+        background: #109177;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Smart Health Card QR Code Generator</h1>
+    <div class="form-style-5">
+      <form name="immunizations_form" action="smart-health-cards" method="POST" onsubmit="return validateForm()">
+        <fieldset>
+          <legend>Patient Info</legend>
+
+          <label for="family-name">Family Name:</label>
+          <div id="family-name-error" class="error-message"></div>
+          <input type="text" id="family-name" name="family_name">
+
+          <label for="given-names">Given Names:</label>
+          <div id="given-names-error" class="error-message"></div>
+          <input type="text" id="given-names" name="given_names">
+
+          <label for="date-of-birth">Date of Birth:</label>
+          <div id="date-of-birth-error" class="error-message"></div>
+          <input type="date" id="date-of-birth" name="date_of_birth">
+        </fieldset>
+
+        <fieldset>
+          <legend>First Immunization</legend>
+
+          <label for="first-immunization-date">Date:</label>
+          <div id="first-immunization-date-error" class="error-message"></div>
+          <input type="date" id="first-immunization-date" name="first_immunization_date">
+
+          <label for="first-immunization-performer">Provider:</label>
+          <div id="first-immunization-performer-error" class="error-message"></div>
+          <input type="text" id="first-immunization-performer" name="first_immunization_performer">
+
+          <label for="first-immunization-lot-number">Lot Number:</label>
+          <div id="first-immunization-lot-number-error" class="error-message"></div>
+          <input type="text" id="first-immunization-lot-number" name="first_immunization_lot_number">
+
+          <label for="first-immunization-vaccine-type">Vaccine Type:</label>
+          <div id="first-immunization-vaccine-type-error" class="error-message"></div>
+          <select id="first-immunization-vaccine-type" name="first_immunization_vaccine_type">
+            <option value=""></option>
+            <option value="Pfizer">Pfizer-BioNTech</option>
+            <option value="Moderna">Moderna</option>
+            <option value="JohnsonAndJohnson">Janssen (Johnson & Johnson)</option>
+            <option value="AstraZeneca">AstraZeneca</option>
+            <option value="Sinopharm">Sinopharm</option>
+            <option value="COVAXIN">COVAXIN</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend id="second-immunization">Second Immunization</legend>
+          <div id="second-immunization-error" class="error-message"></div>
+
+          <label for="second-immunization-date">Date:</label>
+          <input type="date" id="second-immunization-date" name="second_immunization_date">
+
+          <label for="second-immunization-performer">Provider:</label>
+          <input type="text" id="second-immunization-performer" name="second_immunization_performer">
+
+          <label for="second-immunization-lot-number">Lot Number:</label>
+          <input type="text" id="second-immunization-lot-number" name="second_immunization_lot_number">
+
+          <label for="second-immunization-vaccine-type">Vaccine Type:</label>
+          <select id="second-immunization-vaccine-type" name="second_immunization_vaccine_type">
+            <option value=""></option>
+            <option value="Pfizer">Pfizer-BioNTech</option>
+            <option value="Moderna">Moderna</option>
+            <option value="JohnsonAndJohnson">Janssen (Johnson & Johnson)</option>
+            <option value="AstraZeneca">AstraZeneca</option>
+            <option value="Sinopharm">Sinopharm</option>
+            <option value="COVAXIN">COVAXIN</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend id="third-immunization">Third Immunization</legend>
+          <div id="third-immunization-error" class="error-message"></div>
+
+          <label for="third-immunization-date">Date:</label>
+          <input type="date" id="third-immunization-date" name="third_immunization_date">
+
+          <label for="third-immunization-performer">Provider:</label>
+          <input type="text" id="third-immunization-performer" name="third_immunization_performer">
+
+          <label for="third-immunization-lot-number">Lot Number:</label>
+          <input type="text" id="third-immunization-lot-number" name="third_immunization_lot_number">
+
+          <label for="third-immunization-vaccine-type">Vaccine Type:</label>
+          <select id="third-immunization-vaccine-type" name="third_immunization_vaccine_type">
+            <option value=""></option>
+            <option value="Pfizer">Pfizer-BioNTech</option>
+            <option value="Moderna">Moderna</option>
+            <option value="JohnsonAndJohnson">Janssen (Johnson & Johnson)</option>
+            <option value="AstraZeneca">AstraZeneca</option>
+            <option value="Sinopharm">Sinopharm</option>
+            <option value="COVAXIN">COVAXIN</option>
+          </select>
+        </fieldset>
+        <input type="submit" value="Generate QR Code"/>
+      </form>
+    </div>
+
+    <script>
+      function validateForm() {
+        document.querySelectorAll(".error-message").forEach(function(e) {
+          e.innerText = "";
+        })
+
+        let form = document.forms["immunizations_form"];
+
+        let familyName = form["family_name"].value.trim();
+        let givenNames = form["given_names"].value.trim();
+        let birthDateString = form["date_of_birth"].value.trim();
+
+        let firstImmunizationDateString = form["first_immunization_date"].value.trim();
+        let firstImmunizationPerformer = form["first_immunization_performer"].value.trim();
+        let firstImmunizationLotNumber = form["first_immunization_lot_number"].value.trim();
+        let firstImmunizationVaccineTypeString = form["first_immunization_vaccine_type"].value.trim();
+
+        let secondImmunizationDateString = form["second_immunization_date"].value.trim();
+        let secondImmunizationPerformer = form["second_immunization_performer"].value.trim();
+        let secondImmunizationLotNumber = form["second_immunization_lot_number"].value.trim();
+        let secondImmunizationVaccineTypeString = form["second_immunization_vaccine_type"].value.trim();
+
+        let thirdImmunizationDateString = form["third_immunization_date"].value.trim();
+        let thirdImmunizationPerformer = form["third_immunization_performer"].value.trim();
+        let thirdImmunizationLotNumber = form["third_immunization_lot_number"].value.trim();
+        let thirdImmunizationVaccineTypeString = form["third_immunization_vaccine_type"].value.trim();
+
+        let valid = true;
+        let firstInvalidElementID = "";
+
+        if (familyName == "") {
+          document.getElementById("family-name-error").innerText = "Family Name is blank";
+          firstInvalidElementID = "family-name-error";
+          valid = false;
+        }
+
+        if (givenNames == "") {
+          document.getElementById("given-names-error").innerText = "Given Names is blank";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "given-names-error"; }
+          valid = false;
+        }
+
+        if (birthDateString == "") {
+          document.getElementById("date-of-birth-error").innerText = "Date of Birth is blank";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "date-of-birth-error"; }
+          valid = false;
+        }
+
+        if (firstImmunizationDateString == "") {
+          document.getElementById("first-immunization-date-error").innerText = "First Immunization Date is blank";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "first-immunization-date-error"; }
+          valid = false;
+        }
+
+        if (firstImmunizationPerformer == "") {
+          document.getElementById("first-immunization-performer-error").innerText = "First Immunization Provider is blank";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "first-immunization-performer-error"; }
+          valid = false;
+        }
+
+        if (firstImmunizationLotNumber == "") {
+          document.getElementById("first-immunization-lot-number-error").innerText = "First Immunization Lot Number is blank";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "first-immunization-lot-number-error"; }
+          valid = false;
+        }
+
+        if (firstImmunizationVaccineTypeString == "") {
+          document.getElementById("first-immunization-vaccine-type-error").innerText = "First Immunization Vaccine Type is blank";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "first-immunization-vaccine-type-error"; }
+          valid = false;
+        }
+
+        if ((secondImmunizationPerformer != "" || secondImmunizationLotNumber != "" ||
+              secondImmunizationVaccineTypeString != "" || secondImmunizationDateString != "") &&
+            (secondImmunizationPerformer == "" || secondImmunizationLotNumber == "" ||
+              secondImmunizationVaccineTypeString == "" || secondImmunizationDateString == ""))
+        {
+          document.getElementById("second-immunization-error").innerText = "Second Immunization information only partially complete";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "second-immunization-error"; }
+          valid = false;
+        }
+
+        if ((thirdImmunizationPerformer != "" || thirdImmunizationLotNumber != "" ||
+              thirdImmunizationVaccineTypeString != "" || thirdImmunizationDateString != "") &&
+            (secondImmunizationPerformer == "" && secondImmunizationLotNumber == "" &&
+              secondImmunizationVaccineTypeString == "" && secondImmunizationDateString == ""))
+        {
+          document.getElementById("second-immunization-error").innerText = "Third Immunization information provided while Second Immunization information is incomplete";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "second-immunization-error"; }
+          valid = false;
+        }
+
+        if ((thirdImmunizationPerformer != "" || thirdImmunizationLotNumber != "" ||
+              thirdImmunizationVaccineTypeString != "" || thirdImmunizationDateString != "") &&
+            (thirdImmunizationPerformer == "" || thirdImmunizationLotNumber == "" ||
+              thirdImmunizationVaccineTypeString == "" || thirdImmunizationDateString == ""))
+        {
+          document.getElementById("third-immunization-error").innerText = "Third Immunization information only partially complete";
+          if (firstInvalidElementID == "") { firstInvalidElementID = "third-immunization-error"; }
+          valid = false;
+        }
+
+        document.getElementById(firstInvalidElementID).previousElementSibling.scrollIntoView();
+        return valid;
+      }
+    </script>
+  </body>
+</html>

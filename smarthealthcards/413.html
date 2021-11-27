@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>400 Not Found</title>
+    <title>413 Request Entity Too Large</title>
 
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
     <style id="" media="all">
@@ -16,11 +16,11 @@
         padding: 0;
         margin: 0;
       }
-      #not-found {
+      #request-entity-too-large {
         position: relative;
         height: 100vh;
       }
-      #not-found .not-found {
+      #request-entity-too-large .request-entity-too-large {
         position: absolute;
         left: 50%;
         top: 50%;
@@ -28,7 +28,7 @@
         -ms-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
       }
-      .not-found {
+      .request-entity-too-large {
         max-width: 920px;
         width: 100%;
         line-height: 1.4;
@@ -36,7 +36,7 @@
         padding-left: 15px;
         padding-right: 15px;
       }
-      .not-found .not-found-400 {
+      .request-entity-too-large .request-entity-too-large-413 {
         position: absolute;
         height: 100px;
         top: 0;
@@ -46,7 +46,7 @@
         transform: translateX(-50%);
         z-index: -1;
       }
-      .not-found .not-found-400 h1 {
+      .request-entity-too-large .request-entity-too-large-413 h1 {
         font-family: 'Abel';
         color: #ececec;
         font-weight: 900;
@@ -59,7 +59,7 @@
         -ms-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
       }
-      .not-found h2 {
+      .request-entity-too-large h2 {
         font-family: 'Abel';
         font-size: 46px;
         color: #000;
@@ -67,7 +67,7 @@
         text-transform: uppercase;
         margin: 0;
       }
-      .not-found p {
+      .request-entity-too-large p {
         font-family: 'Abel';
         font-size: 16px;
         color: #000;
@@ -75,7 +75,7 @@
         text-transform: uppercase;
         margin-top: 15px;
       }
-      .not-found a {
+      .request-entity-too-large a {
         font-family: 'Abel';
         font-size: 14px;
         text-decoration: none;
@@ -90,16 +90,16 @@
         -webkit-transition: .2s all;
         transition: .2s all;
       }
-      .not-found a: hover {
+      .request-entity-too-large a: hover {
         background-color: #fff;
         border-color: rgba(96, 128, 128, 0.8);
         color: rgba(96, 128, 128, 0.8);
       }
       @media only screen and (max-width:480px) {
-        .not-found .not-found-400 h1 {
+        .request-entity-too-large .request-entity-too-large-413 h1 {
           font-size:162px;
         }
-        .not-found h2 {
+        .request-entity-too-large h2 {
           font-size:26px;
         }
       }
@@ -108,13 +108,13 @@
     <meta name="robots" content="noindex, follow">
   </head>
   <body>
-    <div id="not-found">
-      <div class="not-found">
-        <div class="not-found-400">
-          <h1>400</h1>
+    <div id="request-entity-too-large">
+      <div class="request-entity-too-large">
+        <div class="request-entity-too-large-413">
+          <h1>413</h1>
         </div>
-        <h2>Sorry, page not found!</h2>
-        <p>The page you requested may have been deleted or renamed.</p>
+        <h2>Sorry, your input was too large!</h2>
+        <p>Breaking up large input into multiple chunks and generating multiple QR codes is not supported at this time.</p>
         <a href="/">Go to home page</a>
       </div>
     </div>
