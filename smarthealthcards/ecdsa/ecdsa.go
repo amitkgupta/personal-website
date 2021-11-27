@@ -44,7 +44,9 @@ type key struct {
 }
 
 func (k key) Sign(payload []byte) (*big.Int, *big.Int, error) {
-	return ecdsa.Sign(rand.Reader, k.pkey, payload)
+	hash := make([]byte, 32)
+	for i, b := range sha256.Sum256(payload) { hash[i] = b }
+	return ecdsa.Sign(rand.Reader, k.pkey, hash)
 }
 
 func (k key) xtos() string {
