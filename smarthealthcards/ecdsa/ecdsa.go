@@ -11,7 +11,7 @@ import (
 	"math/big"
 )
 
-type Key interface{
+type Key interface {
 	Sign(payload []byte) (*big.Int, *big.Int, error)
 	Kid() string
 	JWKSJSON() ([]byte, error)
@@ -37,8 +37,8 @@ func LoadKey(d, x, y string) (Key, error) {
 		D: dInt,
 		PublicKey: ecdsa.PublicKey{
 			Curve: elliptic.P256(),
-			X: xInt,
-			Y: yInt,
+			X:     xInt,
+			Y:     yInt,
 		},
 	}
 
@@ -51,7 +51,9 @@ type key struct {
 
 func (k key) Sign(payload []byte) (*big.Int, *big.Int, error) {
 	hash := make([]byte, 32)
-	for i, b := range sha256.Sum256(payload) { hash[i] = b }
+	for i, b := range sha256.Sum256(payload) {
+		hash[i] = b
+	}
 	return ecdsa.Sign(rand.Reader, k.pkey, hash)
 }
 
@@ -71,7 +73,9 @@ func (k key) Kid() string {
 	)
 
 	hash := make([]byte, 32)
-	for i, b := range sha256.Sum256([]byte(jwkString)) { hash[i] = b }
+	for i, b := range sha256.Sum256([]byte(jwkString)) {
+		hash[i] = b
+	}
 
 	return base64.RawURLEncoding.EncodeToString(hash)
 }
@@ -80,13 +84,13 @@ func (k key) JWKSJSON() ([]byte, error) {
 	return json.Marshal(jwks{
 		Keys: []jwk{
 			{
-				KeyType: "EC",
-				KeyID: k.Kid(),
-				Use: "sig",
+				KeyType:   "EC",
+				KeyID:     k.Kid(),
+				Use:       "sig",
 				Algorithm: "ES256",
-				Curve: "P-256",
-				X: k.xtos(),
-				Y: k.ytos(),
+				Curve:     "P-256",
+				X:         k.xtos(),
+				Y:         k.ytos(),
 			},
 		},
 	})
@@ -97,11 +101,11 @@ type jwks struct {
 }
 
 type jwk struct {
-	KeyType string `json:"kty"`
-	KeyID string `json:"kid"`
-	Use string `json:"use"`
+	KeyType   string `json:"kty"`
+	KeyID     string `json:"kid"`
+	Use       string `json:"use"`
 	Algorithm string `json:"alg"`
-	Curve string `json:"crv"`
-	X string `json:"x"`
-	Y string `json:"y"`
+	Curve     string `json:"crv"`
+	X         string `json:"x"`
+	Y         string `json:"y"`
 }

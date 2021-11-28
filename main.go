@@ -83,47 +83,47 @@ func main() {
 				case http.MethodGet:
 					http.ServeFile(w, r, "smarthealthcards/form.html")
 				case http.MethodPost:
-			        fhirBundle, err := web.ParseInput(r)
-			        if err != nil {
-			            http.Error(w, err.Error(), http.StatusBadRequest)
-			            return
-			        }
+					fhirBundle, err := web.ParseInput(r)
+					if err != nil {
+						http.Error(w, err.Error(), http.StatusBadRequest)
+						return
+					}
 
-			        payload, err := json.Marshal(fhirbundle.NewJWSPayload(fhirBundle))
-			        if err != nil {
-			            http.ServeFile(w, r, "500.html")
-			            w.WriteHeader(http.StatusInternalServerError)
-			            return
-			        }
+					payload, err := json.Marshal(fhirbundle.NewJWSPayload(fhirBundle))
+					if err != nil {
+						http.ServeFile(w, r, "500.html")
+						w.WriteHeader(http.StatusInternalServerError)
+						return
+					}
 
-			        healthCardJWS, err := jws.SignAndSerialize(payload, shcKey)
-			        if err != nil {
-			            http.ServeFile(w, r, "500.html")
-			            w.WriteHeader(http.StatusInternalServerError)
-			            return
-			        }
+					healthCardJWS, err := jws.SignAndSerialize(payload, shcKey)
+					if err != nil {
+						http.ServeFile(w, r, "500.html")
+						w.WriteHeader(http.StatusInternalServerError)
+						return
+					}
 
-			        qrPNG, err := qrcode.Encode(healthCardJWS)
-			        if err != nil {
-			            if errors.Is(err, qrcode.JWSTooLargeError) {
-			                http.ServeFile(w, r, "smarthealthcards/413.html")
-			                w.WriteHeader(http.StatusRequestEntityTooLarge)
-			            } else {
-			                http.ServeFile(w, r, "500.html")
-			                w.WriteHeader(http.StatusInternalServerError)
-			            }
-			            return
-			        }
+					qrPNG, err := qrcode.Encode(healthCardJWS)
+					if err != nil {
+						if errors.Is(err, qrcode.JWSTooLargeError) {
+							http.ServeFile(w, r, "smarthealthcards/413.html")
+							w.WriteHeader(http.StatusRequestEntityTooLarge)
+						} else {
+							http.ServeFile(w, r, "500.html")
+							w.WriteHeader(http.StatusInternalServerError)
+						}
+						return
+					}
 
-			        w.Header().Set("Content-Type", "image/png")
-			        w.Write(qrPNG)
+					w.Header().Set("Content-Type", "image/png")
+					w.Write(qrPNG)
 				default:
-					http.Error(w, fmt.Sprintf("%d method not allowed", r.Method), http.StatusMethodNotAllowed)
+					http.Error(w, fmt.Sprintf("%s method not allowed", r.Method), http.StatusMethodNotAllowed)
 				}
 			case "/smart-health-cards/.well-known/jwks.json":
 				if jwksJSON, err := shcKey.JWKSJSON(); err != nil {
-		            http.ServeFile(w, r, "500.html")
-		            w.WriteHeader(http.StatusInternalServerError)
+					http.ServeFile(w, r, "500.html")
+					w.WriteHeader(http.StatusInternalServerError)
 				} else {
 					w.Header().Set("Access-Control-Allow-Origin", "*")
 					w.Header().Set("Content-Type", "application/json")

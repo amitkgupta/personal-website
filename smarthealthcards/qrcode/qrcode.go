@@ -10,7 +10,9 @@ import (
 var JWSTooLargeError = errors.New("JWS too large, QR chunking not currently implemented.")
 
 func Encode(content string) ([]byte, error) {
-	if len(content) > 1195 { return nil, JWSTooLargeError }
+	if len(content) > 1195 {
+		return nil, JWSTooLargeError
+	}
 
 	shcContent := "shc:/"
 	for _, r := range content {
@@ -18,7 +20,9 @@ func Encode(content string) ([]byte, error) {
 	}
 
 	q, err := qrcode.NewWithForcedVersion(shcContent, 22, qrcode.Medium)
-	if err != nil { return nil, err }
+	if err != nil {
+		return nil, err
+	}
 
 	return q.PNG(512)
 }
