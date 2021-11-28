@@ -17,15 +17,21 @@ type Key interface{
 	JWKSJSON() ([]byte, error)
 }
 
-func LoadKey(d, x, y string) Key {
+func LoadKey(d, x, y string) (Key, error) {
 	dInt := new(big.Int)
-	dInt.UnmarshalText([]byte(d))
+	if err := dInt.UnmarshalText([]byte(d)); err != nil {
+		return nil, err
+	}
 
 	xInt := new(big.Int)
-	xInt.UnmarshalText([]byte(x))
+	if err := xInt.UnmarshalText([]byte(x)); err != nil {
+		return nil, err
+	}
 
 	yInt := new(big.Int)
-	yInt.UnmarshalText([]byte(y))
+	if err := yInt.UnmarshalText([]byte(y)); err != nil {
+		return nil, err
+	}
 
 	pkey := ecdsa.PrivateKey{
 		D: dInt,
@@ -36,7 +42,7 @@ func LoadKey(d, x, y string) Key {
 		},
 	}
 
-	return key{pkey: &pkey}
+	return key{pkey: &pkey}, nil
 }
 
 type key struct {

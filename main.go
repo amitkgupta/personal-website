@@ -19,11 +19,14 @@ import (
 func main() {
 	pattern := regexp.MustCompile(`^/(blog/.*|images/.*|sitemap.xml|atom.xml)$`)
 
-    shcKey := ecdsa.LoadKey(
-        os.Getenv("SMART_HEALTH_CARDS_KEY_D"),
-        os.Getenv("SMART_HEALTH_CARDS_KEY_X"),
-        os.Getenv("SMART_HEALTH_CARDS_KEY_Y"),
-    )
+	shcKey, err := ecdsa.LoadKey(
+		os.Getenv("SMART_HEALTH_CARDS_KEY_D"),
+		os.Getenv("SMART_HEALTH_CARDS_KEY_X"),
+		os.Getenv("SMART_HEALTH_CARDS_KEY_Y"),
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	log.Fatal(http.ListenAndServe(
 		":"+os.Getenv("PORT"),
