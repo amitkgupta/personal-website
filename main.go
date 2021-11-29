@@ -1,19 +1,17 @@
 package main
 
 import (
-	"encoding/json"
-	"errors"
+	"bytes"
 	"fmt"
+	"html/template"
+	"io"
 	"log"
 	"net/http"
 	"os"
 	"regexp"
 
-	"github.com/amitkgupta/personal-website/smarthealthcards/ecdsa"
-	"github.com/amitkgupta/personal-website/smarthealthcards/fhirbundle"
-	"github.com/amitkgupta/personal-website/smarthealthcards/jws"
-	"github.com/amitkgupta/personal-website/smarthealthcards/qrcode"
-	"github.com/amitkgupta/personal-website/smarthealthcards/web"
+	"github.com/amitkgupta/go-smarthealthcards/ecdsa"
+	"github.com/amitkgupta/go-smarthealthcards/webformhandler"
 )
 
 func main() {
@@ -24,6 +22,13 @@ func main() {
 		os.Getenv("SMART_HEALTH_CARDS_KEY_X"),
 		os.Getenv("SMART_HEALTH_CARDS_KEY_Y"),
 	)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	shcWebFormHandler := webformhandler.New(shcKey, "https://akgupta.ca/smart-health-cards")
+
+	template413, err := template.ParseFiles("413.html.tmpl")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -81,42 +86,29 @@ func main() {
 			case "/smart-health-cards":
 				switch r.Method {
 				case http.MethodGet:
-					http.ServeFile(w, r, "smarthealthcards/form.html")
+					http.ServeFile(w, r, "smart-health-cards-form.html")
 				case http.MethodPost:
-					fhirBundle, err := web.ParseInput(r)
-					if err != nil {
-						http.Error(w, err.Error(), http.StatusBadRequest)
+					responseCode, errorMessage, ok := shcWebFormHandler.Process(w, r)
+					if ok {
 						return
 					}
 
-					payload, err := json.Marshal(fhirbundle.NewJWSPayload(fhirBundle))
-					if err != nil {
+					switch responseCode {
+					case http.StatusInternalServerError:
 						http.ServeFile(w, r, "500.html")
 						w.WriteHeader(http.StatusInternalServerError)
-						return
-					}
-
-					healthCardJWS, err := jws.SignAndSerialize(payload, shcKey)
-					if err != nil {
-						http.ServeFile(w, r, "500.html")
-						w.WriteHeader(http.StatusInternalServerError)
-						return
-					}
-
-					qrPNG, err := qrcode.Encode(healthCardJWS)
-					if err != nil {
-						if errors.Is(err, qrcode.JWSTooLargeError) {
-							http.ServeFile(w, r, "smarthealthcards/413.html")
-							w.WriteHeader(http.StatusRequestEntityTooLarge)
-						} else {
+					case http.StatusRequestEntityTooLarge:
+						buf := new(bytes.Buffer)
+						if err := template413.Execute(buf, errorMessage); err != nil {
 							http.ServeFile(w, r, "500.html")
 							w.WriteHeader(http.StatusInternalServerError)
+						} else {
+							io.Copy(w, buf)
+							w.WriteHeader(http.StatusRequestEntityTooLarge)
 						}
-						return
+					case http.StatusBadRequest:
+						http.Error(w, errorMessage, responseCode)
 					}
-
-					w.Header().Set("Content-Type", "image/png")
-					w.Write(qrPNG)
 				default:
 					http.Error(w, fmt.Sprintf("%s method not allowed", r.Method), http.StatusMethodNotAllowed)
 				}
