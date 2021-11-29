@@ -11,7 +11,7 @@ import (
 	"regexp"
 
 	"github.com/amitkgupta/go-smarthealthcards/ecdsa"
-	"github.com/amitkgupta/go-smarthealthcards/webformhandler"
+	"github.com/amitkgupta/go-smarthealthcards/webhandlers"
 )
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	shcWebFormHandler := webformhandler.New(shcKey, "https://akgupta.ca/smart-health-cards")
+	shcWebHandlers := webhandlers.New(shcKey, "https://akgupta.ca/smart-health-cards")
 
 	template413, err := template.ParseFiles("413.html.tmpl")
 	if err != nil {
@@ -88,7 +88,7 @@ func main() {
 				case http.MethodGet:
 					http.ServeFile(w, r, "smart-health-cards-form.html")
 				case http.MethodPost:
-					responseCode, errorMessage, ok := shcWebFormHandler.Process(w, r)
+					responseCode, errorMessage, ok := shcWebHandlers.ProcessForm(w, r)
 					if ok {
 						return
 					}
@@ -106,20 +106,23 @@ func main() {
 							io.Copy(w, buf)
 							w.WriteHeader(http.StatusRequestEntityTooLarge)
 						}
-					case http.StatusBadRequest:
+					default:
 						http.Error(w, errorMessage, responseCode)
 					}
 				default:
 					http.Error(w, fmt.Sprintf("%s method not allowed", r.Method), http.StatusMethodNotAllowed)
 				}
 			case "/smart-health-cards/.well-known/jwks.json":
-				if jwksJSON, err := shcKey.JWKSJSON(); err != nil {
+				responseCode, errorMessage, ok := shcWebHandlers.JWKSJSON(w, r)
+				if ok {
+					return
+				}
+
+				if responseCode == http.StatusInternalServerError {
 					http.ServeFile(w, r, "500.html")
 					w.WriteHeader(http.StatusInternalServerError)
 				} else {
-					w.Header().Set("Access-Control-Allow-Origin", "*")
-					w.Header().Set("Content-Type", "application/json")
-					w.Write(jwksJSON)
+					http.Error(w, errorMessage, responseCode)
 				}
 			default:
 				http.ServeFile(w, r, "404.html")
