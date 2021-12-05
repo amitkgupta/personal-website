@@ -10,8 +10,8 @@ import (
 	"os"
 	"regexp"
 
-	"github.com/amitkgupta/go-smarthealthcards/ecdsa"
-	"github.com/amitkgupta/go-smarthealthcards/webhandlers"
+	"github.com/amitkgupta/go-smarthealthcards/v2/ecdsa"
+	"github.com/amitkgupta/go-smarthealthcards/v2/webhandlers"
 )
 
 func main() {
@@ -83,7 +83,7 @@ func main() {
 				http.ServeFile(w, r, r.URL.Path[1:])
 			case "/":
 				http.ServeFile(w, r, "index.html")
-			case "/smart-health-cards":
+			case "/smart-health-cards", "/smart-health-cards/":
 				switch r.Method {
 				case http.MethodGet:
 					http.ServeFile(w, r, "smart-health-cards-form.html")
@@ -113,7 +113,7 @@ func main() {
 					http.Error(w, fmt.Sprintf("%s method not allowed", r.Method), http.StatusMethodNotAllowed)
 				}
 			case "/smart-health-cards/.well-known/jwks.json":
-				responseCode, errorMessage, ok := shcWebHandlers.JWKSJSON(w, r)
+				responseCode, errorMessage, ok := shcWebHandlers.JWKSJSON(w)
 				if ok {
 					return
 				}

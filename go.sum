@@ -1,4 +1,4 @@
-github.com/amitkgupta/go-smarthealthcards v1.0.0 h1:yo5Rns+4larlk5nPWnhb2mbUccbWl/qHF6mAZ8ngmkM=
-github.com/amitkgupta/go-smarthealthcards v1.0.0/go.mod h1:aZ2PJw1IKlaPHzTZd2n88836ptSJih3Ou0LFObtYTUo=
+github.com/amitkgupta/go-smarthealthcards/v2 v2.0.0 h1:b1OzHnRF+RLQu7pt5COWk4UIH24+pCdCpFbL2IXmWbs=
+github.com/amitkgupta/go-smarthealthcards/v2 v2.0.0/go.mod h1:ygxkYR+eBR3wpn6n3cLw3NLSDDnoKpkbhe7vkSFkaD0=
 github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e h1:MRM5ITcdelLK2j1vwZ3Je0FKVCfqOLp5zO6trqMLYs0=
 github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e/go.mod h1:XV66xRDqSt+GTGFMVlhk3ULuV0y9ZmzeVGR4mloJI3M=
