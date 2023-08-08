@@ -79,7 +79,12 @@ func main() {
 				"/ms-icon-144x144.png",
 				"/ms-icon-150x150.png",
 				"/ms-icon-310x310.png",
-				"/ms-icon-70x70.png":
+				"/ms-icon-70x70.png",
+				"/nav.gif",
+				"/keypad.gif",
+				"/dcsd-2023-mlo.css",
+				"/dcsd-2023-mlo.js",
+				"/dcsd-2023-mlo.html":
 				http.ServeFile(w, r, r.URL.Path[1:])
 			case "/":
 				http.ServeFile(w, r, "index.html")

@@ -1,0 +1,97 @@
+* { font-family: 'Open Sans', sans-serif; }
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #007bff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.active .dot {
+  background-color: #ff0000;
+}
+
+.active {
+  color: #ff0000;
+}
+
+.slide {
+  display: none;
+  padding: 40px;
+  margin-left: 290px;
+}
+
+.tax-calculator-container tr td:first-child {
+  font-size: x-large;
+}
+
+.tax-calculator-container tr td:nth-child(2) {
+  text-align: right;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+.tax-calculator-container td {
+  border: none;
+}
+.tax-calculator-container table {
+  border: none;
+}
+.nav-explainer td {
+  border: none;
+  text-align: center;
+  padding: 1em;
+}
+.nav-explainer table {
+  border: none;
+  text-align: center;
+  padding: 1em;
+}
+
+.opinion {
+  background-color: lightgoldenrodyellow;
+  padding: 1em 2em;
+}
+
+.coming-soon {
+  background-color: palegreen;
+  padding: 1em 2em;
+}

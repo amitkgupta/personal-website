@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KEY FACTS: Douglas County School District Mill Levy Override Proposal 2023</title>
+  <link rel="stylesheet" href="dcsd-2023-mlo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro:wght@900&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+  <nav>
+    <ul id="nav-dots">
+      <li class="active"><span class="dot"></span>Welcome!</li>
+      <li><span class="dot"></span>Introduction</li>
+      <li><span class="dot"></span>What does it cost?</li>
+      <li><span class="dot"></span>What will that fund?</li>
+      <li><span class="dot"></span>Why invest in that?</li>
+      <li><span class="dot"></span>Can we divest elsewhere?</li>
+      <li><span class="dot"></span>Must funds come from us?</li>
+      <li><span class="dot"></span>FAQ</li>
+      <li><span class="dot"></span>Resources</li>
+      <li><span class="dot"></span>About</li>
+    </ul>
+  </nav>
+
+  <div class="slide" id="slide0">
+    <p style="text-align: center; font-family: 'Source Code Pro', monospace; font-size: 5vw">KEY FACTS</p>
+    <h1>Douglas County School District Mill Levy Override Proposal 2023</h1>
+    <div class="nav-explainer">
+      <table style="margin:auto;">
+        <tr>
+          <td>Use your left and right arrow keys to navigate</td>
+          <td>Or click the section titles in the navigation menu</td>
+        </tr>
+        <tr>
+          <td><img src="keypad.gif" width="300"></td>
+          <td><img src="nav.gif" width="300"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="slide" id="slide1">
+    <h1>Introduction</h1>
+    <p>Douglas County School District (DCSD) plans to <a href="https://cdnsm5-ss14.sharpschool.com/UserFiles/Servers/Server_220400/Image/BondMLO/2023/MLO-BondPlan-rev6-27-23.pdf">propose a property tax increase</a> that will impact Douglas County residents. At a high level, this proposal has two parts:</p>
+    <ol>
+      <li>A mill levy override (MLO) increase -- the annual funds from this will be used to cover planned increases in operating expenses, primarily salaries. The planned salary increases are intended to effectively retain the quality and size of the teaching workforce by making their salaries more competitive with neighboring school districts.
+      <li>A bond redemption mill increase (relative to what it would have been otherwise) -- this increase will remain in place for several years and will be used to pay creditors for a bond that DCSD will issue to cover capital expenses.</li>
+    </ol>
+    <p>Voters will be asked to approve or reject each part of this proposal in the November 2023 elections.</p>
+    <p>I created this presentation to help myself properly understand the MLO portion of this proposal, and specifically the teacher salary problem this proposal aims to address, since the majority of the funding would be spent on this. If you're a fellow Douglas County resident, I hope it helps you too.</p>
+    <p class="opinion">I've tried to stick to facts, but where I've stated something that is a matter of opinion, I've indicated it with a yellow box like this.</p>
+  </div>
+
+  <div class="slide" id="slide2">
+    <h1>What does it cost?</h1>
+    <p>DCSD's proposal aims to raise an additional $66.0M annually via the MLO increase.</p>
+    <p>There are two ways to think about the impact of this tax:</p>
+    <ol>
+      <li><b>tax rate</b>: how much is your tax per unit of home value changing?</li>
+      <li><b>tax burden</b>: how much is the total dollar amount you pay in taxes annually changing?</li>
+    </ol>
+    <p>It's important to understand both of these. For example, in theory the tax <b>rate</b> could <b>decrease</b> slightly while your property value increases significantly, with the end result being that your total tax <b>burden</b> actually <b>increases</b>.</p>
+    <p>Here's what will happen depending on whether or not the MLO initiative passes:</p>
+    <table>
+      <thead><tr>
+        <th style="max-width: 500px;"></th>
+        <th>if MLO initiative passes</th>
+        <th>if MLO initiative fails</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td style="max-width: 500px;">change in tax <b>rate</b> per $10k of property value, assuming 35% total assessment increase for all properties</td>
+          <td>increase $2.47</td>
+          <td>decrease $1.59</td>
+        </tr>
+        <tr>
+          <td style="max-width: 500px;">change in tax <b>burden</b> for property valued at $600k prior to the expected assessment increases</td>
+          <td>increase $328.92 annually</td>
+          <td>no change</td>
+        </tr>
+      </tbody>
+    </table>    
+    <p>Enter a property value (prior to assessment increases) to see how your annual tax burden will increase if this initiative passes. NOTE: This information will not be stored or seen by anyone other than you.</p>
+    <div class="tax-calculator-container">
+      <table style="margin:auto;">
+        <tr>
+          <td></td>
+          <td>Amount being raised:</td>
+          <td>$66,000,000.00</td>
+        </tr>
+        <tr>
+          <td>x</td>
+          <td>Your property value:</td>
+          <td><input type="number" id="home-value-input" min="1" max="100000000" step="1" placeholder="$540,400"></td>
+        </tr>
+        <tr>
+          <td>x</td>
+          <td>Assessment rate:</td>
+          <td><a href="https://www.douglas.co.us/assessor/residential-property-tax-calculations/">6.765%</a></td>
+        </tr>
+        <tr>
+          <td>÷</td>
+          <td>Total assessed value:</td>
+          <td><a href="https://www.cde.state.co.us/cdefinance/sfmilllevy">$8,144,600,544.00</a></td>
+        </tr>
+        <tr>
+          <td>=</td>
+          <td>Tax burden increase:</td>
+          <td><output id="tax-output">$296.25</output></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="slide" id="slide3">
+    <h1>What will that fund?</h1>
+    <p>The $66.0M is expected to be used as follows:</p>
+    <table>
+      <thead><tr>
+        <th></th>
+        <th>Compensation</th>
+        <th>Security</th>
+        <th>Total</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>District (Non-Charter) Allocation (76%)</td>
+          <td>$45.6M</td>
+          <td>$4.6M</td>
+          <td>$50.2M</td>
+        </tr>
+        <tr>
+          <td>Charter Allocation (24%)</td>
+          <td>$14.4M</td>
+          <td>$1.4M</td>
+          <td>$15.8M</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total</td>
+          <td>$60.0M</td>
+          <td>$6.0M</td>
+          <td>$66.0M</td>
+        </tr>
+      </tfoot>
+    </table>
+    <p>Non-charter licensed teacher salaries will be increased by 9.2% on average under this proposal. Other non-charter staff salaries will be increased 8% on average.</p>
+    <p>In the <a href="https://www.cde.state.co.us/schoolview/financialtransparency/expenditures/0900">2021-2022 school year, DCSD spent $597,832,880 on salaries and benefits</a>. $45.6M represents 7.63% of that figure. Assuming the $45.6M is allocated disproportionately to salaries instead of benefits, and assuming a small amount of additional state-guaranteed funding will contribute to increasing salaries, the numbers check out: 7.63% of DCSD's 2021-2022 expenditure on salaries and benefits is neither too much nor too little to account for the proposed salary increases.</p>
+  </div>
+
+  <div class="slide" id="slide4">
+    <h1>Why invest in that?</h1>
+    <p class="opinion">We want a community where top teachers, police, firefighers, and other key contributors to the community can actually afford to live and thrive in the community. To compete for top teachers, their pay needs to be competitive relative to the other large, neighboring school districts with similar costs of living. The district's ability to retain teachers is at risk due to insufficiently competitive pay.</p>
+    <h2>Pay Competition</h2>
+    <p>Generally speaking, average salaries for licensed classroom teachers in DCSD have always been low relative to peer districts. However, salary growth has been noticeably stagnant from 2008 to present compared to growth in peer districts, with Denver County and Jefferson County surpassing DCSD over that time period. Looking at DCSD alone, this wage stagnation seems untenable giving that the cost of living has not stagnated over that time period. This problem is even more acute when viewed through a competitive lens comparing DCSD pay to peer districts.</p>
+    <iframe id="average-salary-chart" width="600" height="371" seamless frameborder="0" scrolling="no"></iframe>
+    <p>Lower average pay is <i>not necessarily</i> an indication of uncompetitive pay. <i>Hypothetically</i>, it could be that DCSD offers equal pay for equal experience, and simply employees a greater proportion of less experienced teachers. Assuming the overall quality of education is comparable to peer districts, this would be great news. It would imply DCSD is able to do more with less. However, Colorado school districts publish pay schedules, so we can compare salaries across districts at the same experience level. For instance, for licensed classroom teachers with a BA degree, no additional credits towards an MA degree, and no relevant work experience, DCSD pays significantly less than peer districts:</p>
+    <iframe id="starting-salary-chart" width="600" height="371" seamless frameborder="0" scrolling="no"></iframe>
+    <p>You can find published salary schedules for each district below:</p>
+    <ul>
+      <li><a href="https://cdnsm5-ss14.sharpschool.com/UserFiles/Servers/Server_220400/File/About/Departments/Human%20Resources/Compensation/LIC%20Schedules%2023-24%20(Feb%202023).pdf">Douglas</a></li>
+      <li><a href="https://cdnsm5-ss12.sharpschool.com/UserFiles/Servers/Server_627881/File/Jeffco%20PS/Employment/Salary%20Schedules/Educator%20Salary%20Schedule%2022-23.pdf">Jefferson</a></li>
+      <li><a href="https://littletonpublicschools.net/sites/default/files/23-24%20LPS%20Final%20Licensed%20B%20Salary%20Schedule_7-26-23.pdf">Littleton</a></li>
+      <li><a href="http://thecommons.dpsk12.org/cms/lib/CO01900837/Centricity/Domain/61/23-24%20DCTA%20Step%20and%20Grade%20Schedule%20Eff.%208-1-2023.pdf">Denver</a></li>
+      <li><a href="https://resources.finalsite.net/images/v1689025174/bvsdorg/xgdzp3hcnecghqn08w3r/2023-2024BVEAPaySchedule-SalarySchedulexlsx-2023-24.pdf">Boulder Valley</a></li>
+      <li><a href="https://www.cherrycreekschools.org/cms/lib/CO50000184/Centricity/Domain/1417/2023-2024%20Certified%20Salary%20ScheduleTA.pdf">Cherry Creek</a></li>
+    </ul>
+    <h2>Student-Teacher Ratios</h2>
+    <p class="coming soon">COMING SOON: Presentation and analysis of student-teacher ratios, and potential discussion of expected impact on teacher salaries.</p>
+    <h2>Attrition Risk</h2>
+    <p class="coming-soon">COMING SOON: Presentation and analysis of historical turnover rates compared to other districts, and potential discussion of how recent drops in pay competitiveness might impact future turnover rates.</p>
+  </div>
+
+  <div class="slide" id="slide5">
+    <h1>Can we divest elsewhere?</h1>
+    <p>Is DCSD currently spending existing funds elsewhere that would be better off redirected towards salaries?</p>
+    <p>One way to look at this is to consider overall expenditures per pupil, and per-pupil expenditures within certain categories and subcategories of spending, to see whether DCSD is a high-spending outlier relative to peer districts, and relative to all Colorado school districts. By and large, the data suggest that, no, DCSD is <b>not</b> excessively spending existing funds elsewhere.</p>
+    <h2>Total Expenditures</h2>
+    <p>Let's start with total expenditures per pupil:</p>
+    <iframe id="total-expenditures-chart" width="769" height="475" seamless frameborder="0" scrolling="no"></iframe>
+    <p>This data goes back to the 2006-2007 school year. DCSD actually spent more per pupil than the other five highlighted peer districts that year. The latest data from 2020-2021 has DCSD spending less than the other five. These figures are in current dollars, meaning nominal dollar amounts not adjusted for inflation. DCSD per-pupil spending has essentially remained flat despite inflation, while all other districts' spending have grown. So, overall, DCSD is very frugal relative to its peers.</p>
+    <p>Looking beyond just peer districts, the thin gray lines in the chart above represent most other school districts in Colorado<sup>†</sup>. DCSD per-pupil spending is low-to-average relative to most districts. This reinforces that DCSD is relatively very frugal.</p>
+    <p style="font-size: smaller;"><sup>†</sup>Graphs exclude all BOCES and the following districts which had inconsistent data: School District 27J, Westminster School District, Custer County School District C-1, Elizabeth School District, District 49, Fremont RE-2, Pueblo County 70, Upper Rio Grande C-7, Revere School District, Weld RE-3J, and Weld RE-8.</p>
+    <h2>Teacher Compensation</h2>
+    <p>Despite DCSD spending less in total, it's possible that the specific ways money is being spent is simply sub-optimal, and there could be money being spent in some categories which should be redirected to instructor compensation. We can drill down into several of the largest subcategories of spending. First, before looking for categories where spending might be too high, let's do a sanity check and look at instructional salaries and benefits, and confirm this spending is consistent with what the previous section showed, namely that teacher salaries are insufficiently competitive:</p>
+    <iframe id="teacher-salary-expenditure-chart" width="761" height="471" seamless frameborder="0" scrolling="no"></iframe>
+    <iframe id="teacher-benefits-expenditure-chart" width="758" height="469" seamless frameborder="0" scrolling="no"></iframe>
+    <p>Since 2008-2009, DCSD has pretty much always spent the least per-pupil on instructor salaries amongst its peers (occasionally being nearly tied with Jefferson County for spending the least). It's worth noting that, aside from the nebulous "Other" expenditure category, "Instructional Salary" is the largest category of spending.</p>
+    <p>When it comes to benefits, we see DCSD is more middle-of-the-road, both amongst peers and amongst all Colorado districts as a whole. Denver appears to spend much less on benefits, but when figuring total compensation (salary + benefits), Denver spent $4,959.91 + $927.58 = $5,888.49 per-pupil on instructor compensation in 2020-2021 whereas Douglas County only spent $4,340.98 + $1,451.16 = $5,792.14. The only peer district relative to which Douglas County spends more is Jefferson County, and the margin is small.</p>
+    <h2>Administrative Spending</h2>
+    <p>Let's then look at administrative spending. Bloated administrative spending is a perennial concern in education, and in many industries across the US.</p>
+    <iframe id="admin-expenditure-chart" width="756" height="468" seamless frameborder="0" scrolling="no"></iframe>
+    <p>DCSD is middle-of-the-road here. Not very frugal, but by no means excessive.</p>
+    <p>Note, this chart looks at School Administration expenses, which is the total of school-specific administrative expenses. There is another category of administrative expenses, referred to as General Administration, which accounts for central or district-wide administrative expenses. General Administration is relatively small category of spending, however, especially for DCSD and its very large peer districts that benefit from economies of scale when it comes to central administrative spending.</p>
+    <h2>Operations & Maintenance</h2>
+    <p>While "administrative bloat" is sometimes hotly debated as there are often questions or allegations of "wasteful bureaucracy", there is another category of spending that is just as large though less often discussed. Let's look at Operations & Maintenance:</p>
+    <iframe id="operations-and-maintenance-expenditure-chart" width="749" height="463" seamless frameborder="0" scrolling="no"></iframe>
+    <p>Here, we see DCSD has consistently spent less than its peers, and is in fact one of the most spendthrift districts in all of Colorado.</p>
+    <h2>Other Expenditures</h2>
+    <p>Lastly, let's look at the aforementioned nebulous "Other" categories. Unfortunately, due to lack of standardized accounting between districts, there can be huge variations from district to district and year to year in terms of what gets lumped into "Other". And these "Other" categories are in fact very large spending categories, so while being extremely difficult to scrutinize, they can't simply be ignored. To complicate matters, there are different kinds of "Other". At a high level, spending is broken down into Instructional, Support (for Instructional Activities), Community Services, and Other. Within the Support category, there is an "Other Support" subcategory. Both the top-level "Other" category and the "Other Support" subcategory are sizable, so we'll look at both:</p>
+    <iframe id="other-expenditure-chart" width="759" height="469" seamless frameborder="0" scrolling="no"></iframe>
+    <iframe id="other-support-expenditure-chart" width="755" height="467" seamless frameborder="0" scrolling="no"></iframe>
+    <p>Since 2014-2015, DCSD has been low spender on "Other" relative to peers and all districts, and by a very large margin compared to some peer districts. "Other Support" is generally not as big as "Other" as a spending category, but in this category DCSD is a relatively high spender, and has been so consistently. When you add both of these "Others" together, only Cherry Creek spends less per pupil than DCSD amongst peer districts.</p>
+    <h2>Summary</h2>
+    <p>Reflecting on this data, there are first 3 important caveats to call out:</p>
+    <ol>
+      <li>Due to accounting inconsistencies, it's not always possible to tell whether one district spending more than another in a certain category reflects broader spending on the same category of things or a broader defintion of what counts in that category.</li>
+      <li>This data does not include the two most recent school years, wherein decisions to improve spending may have already been enacted.</li>
+      <li>This data does not reflect existing plans to improve spending efficiency in the near future.</li>
+    </ol>
+    <p class="opinion">With those caveats in mind, I believe DCSD should consider spending less on School Administration if they haven't considered this already. For example, decreasing spending 20% here from $961.39 per pupil to $769.12 would put DCSD's spending on par with Littleton's spending of $797.42. And this could be used to contribute significantly towards closing the gap in Instrucitonal Salary expenditures: DCSD's spending could increase from $4,340.98 per pupil to $4,533.26 compared to Littleton's $4,984.57, reducing the gap 30% from $643.59 to $451.31. However, it would definitely not completely close the gap, and DCSD's overall spending patterns are otherwise relatively very frugal, so significant additional revenues will still need to be raised to achieve competitive teacher pay.</p>
+  </div>
+
+  <div class="slide" id="slide6">
+    <h1>Must funds come from us?</h1>
+    <p>Does the additional revenue really need to come from Douglas County resident property taxes?</p>
+    <p class="coming-soon">COMING SOON: Comparison of revenue sources, namely Local Tax, State Funds, Federal Funds, and Other, in terms of how much DCSD gets compared to other districts, how much influence DCSD has over increasing the revenue source, and how stable/reliable the income source is.</p>
+  </div>
+
+  <div class="slide" id="slide7">
+    <h1>FAQ</h1>
+    <h2>My property taxes are already going up with the increases in assessed values. Won't that pay for this?</h2>
+    <p>School funding in Colorado is extremely complicated. The "Total Program" defined in the Public School Finance Act (1994) represents the majority of school districts' funding. The Total Program amount that each district gets is determined by the state, and reflects what the state believes the district needs based on:</p>
+    <ul>
+      <li>total number of pupils</li>
+      <li>purchasing power of the district (which is derived from the number of pupils)</li>
+      <li>proportion of special-needs pupils</li>
+      <li>proportion of online pupils</li>
+      <li>cost of living adjustments</li>
+      <li>cost of labor adjustments, specific to workers needed for the school district</li>
+    </ul>
+    <p>The state applies a formula to determine the Total Program for each district, and then if the sum of all districts' Total Program excessively exceeds the previous year's total, all districts' Total Program amounts are reduced by a common factor to effect Budget Stabilization. The post-stabilization Total Program is what each district receives, and is determiend by the state, but the funding for this comes from both state and local taxes.</p>
+    <p>Funding for this starts with a fixed-percentage carve-out from local property taxes and vehicle registration fees. Any shortfall towards a district's Total Program from these local funds is paid for by the state. When property values increase, the local share of Total Program funding increases, and the state share decreases, but the Total Program amount stays the same.</p>
+    <p>Districts which need additional funding beyond the state's Total Program calculation can raise additional funding through local property taxes. There are legal limitations to the purposes for which funds can be raised, and the amount by which property tax revenue can be increased for each of those purposes. One of the most important mechanisms is the mill levy override; school districts can seek to raise an additional 25% of the Total Program value through local property tax increases, and can use this for operating expenses including salaries (but not capital expenses such as building construction).</p>
+  
+    <h2>The Board is spending money on a lawsuit. Does that have anything to do with this?</h2>
+    <p>In 2022, the DCSD Board of Directors fired then-Superintendent Corey Wise. Wise filed an unlawful termination lawsuit, which was settled, resulting in <a href="https://cdn01.dailycaller.com/wp-content/uploads/2023/04/2023.04.17-Press-Release-Wise.pdf">Wise receiving $832,733.61 paid through a district insurance policy.</a></p>
+    <p>Rep. Bob Marshall, D-Highlands Ranch, has sued the board alleging that the board's private one-on-one conversations leading up to the decision to terminate Wise violated open meeting laws. <a href="https://denvergazette.com/news/courts/douglas-county-school-district-spent-hundreds-of-thousands-in-legal-fees/article_c1ba433e-0fa3-11ee-9d0f-1fe05d2534f9.html">The district has spent $186,099.77 in legal fees to date defending the lawsuit</a>, and potentially faces $90,000 to pay Marshall's legal fees as part of the settlement terms.</p>
+    <p>At present, the actual and potential expenses DCSD will end up facing in total (excluding amounts paid through insurance and ignoring deductibles or premium increases) are $276,099.77. These are <b>one-time expenses</b>. The amount DCSD is seeking to raise annually through the MLO is $66M <b>annually</b>. The expenditure related to this lawsuit is negligible in comparison.</p>
+    <p class="opinion">Whether or not you support Marshall's lawsuit or the Board's defense, the money spent to defend the Board has little bearing on the validity of the MLO increase.</p>
+  </div>
+
+  <div class="slide" id="slide8">
+    <h1>Resources</h1>
+    <h2>Colorado Department of Education</h2>
+    <ul>
+      <li><a href="https://www.cde.state.co.us/cdefinance/fy2018-19brochure">Understanding Colorado School Finance and Categorial Program Funding</a></li>
+      <li><a href="https://www.cde.state.co.us/cdefinance/fiscalyear2022-23schoolfinancefunding">Fiscal Year 2022-23 School Finance Funding</a></li>
+      <li><a href="https://www.cde.state.co.us/schoolview/financialtransparency/expenditures/0900">Interactive Financial Transparency and District Comparison Tool</a></li>
+      <li><a href="https://www.cde.state.co.us/cdereval/staffcurrent">School and District Staff Statistics (e.g. salaries)</a></li>
+      <li><a href="https://www.cde.state.co.us/cdefinance/fiscalyear2020-2021districtrevenuesandexpenditures">Fiscal Year 2020-2021 District Revenues and Expenditures</a></li>
+    </ul>
+    <h2>Douglas County School District</h2>
+    <ul>
+      <li><a href="https://www.dcsdk12.org/cms/one.aspx?pageId=5759766">Financial Transparency</a></li>
+      <li><a href="https://cdnsm5-ss14.sharpschool.com/UserFiles/Servers/Server_220400/Image/BondMLO/2023/MLO-BondPlan-rev6-27-23.pdf">2023 Mill Levy Override and Bond Funding Recommendations</a></li>
+    </ul>
+  </div>
+
+  <div class="slide" id="slide9">
+    <h1>About</h1>
+    <h2>Amit Kumar Gupta</h2>
+    <p>My wife and I moved from San Francisco to Highlands Ranch in 2021. We moved here for the beautiful nature, low crime, friendly people, great schools, political diversity, and housing affordability relative to San Francisco.</p>
+    <p>My parents immigrated from India to Canada. I was born in Toronto in 1984, and grew up in the suburbs of Toronto. I moved to the US in 2007 to pursue a PhD in mathematics at UC Berkeley. In 2012 I left academia to pursue a career in tech, working for 4 years as a software engineer, 2 years as a product manager, and 5 years as a director of product management, leading teams of product managers. My professional area of focus has been in developing and bringing to market large scale, cloud-based application and data management platforms targeting the market of IT departments of large enterprise companies. I have specialized in working for mid-stage startups growing rapidly through to IPO and beyond.</p>
+    <p>I do not work for, nor represent in any way, the Douglas County School District, its elected officials, or its staff. I do not have kids enrolled in DCSD, though I plan to in the future. I am not an expert in DCSD operations, Colorado school financing laws, or the laws and regulations related to taxation in the state of Colorado or in Douglas County.</p>
+    <p class="opinion">I think schools are important, teachers are important, financial responsibility is important, and an engaged citizenry who understands the details and holds governments accountable is important.</p>
+    <p class="opinion">I have written about the recent changes to DCSD's equity policy: <a href="https://mcusercontent.com/87659eb0d9e13d7d859bba5c4/files/f645b132-bf82-1c13-a3bc-287ccad50094/FAIR_Colorado_Newsletter_Summer_2023.pdf">Douglas County School District Makes Its Equity Policy More Pro-Human</a></p>
+  </div>
+
+  <script src="dcsd-2023-mlo.js"></script>
+  <script>
+  $(function(){
+      $("#average-salary-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=1098887175&amp;format=interactive");
+      $("#starting-salary-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=1629525177&amp;format=interactive");
+      $("#total-expenditures-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=482721080&amp;format=interactive");
+      $("#teacher-salary-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=551920401&amp;format=interactive");
+      $("#teacher-benefits-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=147366094&amp;format=interactive");
+      $("#admin-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=838160751&amp;format=interactive");
+      $("#operations-and-maintenance-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=1686714297&amp;format=interactive");
+      $("#other-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=945705865&amp;format=interactive");
+      $("#other-support-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=1918051215&amp;format=interactive");
+  });
+  </script>
+</body>
+</html>
