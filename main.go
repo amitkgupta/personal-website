@@ -83,7 +83,7 @@ func main() {
 				"/dcsd-2023-mlo/nav.gif",
 				"/dcsd-2023-mlo/keypad.gif",
 				"/dcsd-2023-mlo/styles.css",
-				"/dcsd-2023-mlo/script":
+				"/dcsd-2023-mlo/script.js":
 				http.ServeFile(w, r, r.URL.Path[1:])
 			case "/":
 				http.ServeFile(w, r, "index.html")
