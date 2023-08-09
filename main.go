@@ -80,15 +80,15 @@ func main() {
 				"/ms-icon-150x150.png",
 				"/ms-icon-310x310.png",
 				"/ms-icon-70x70.png",
-				"/nav.gif",
-				"/keypad.gif",
-				"/dcsd-2023-mlo.css",
-				"/dcsd-2023-mlo.js":
+				"/dcsd-2023-mlo/nav.gif",
+				"/dcsd-2023-mlo/keypad.gif",
+				"/dcsd-2023-mlo/styles.css",
+				"/dcsd-2023-mlo/script":
 				http.ServeFile(w, r, r.URL.Path[1:])
 			case "/":
 				http.ServeFile(w, r, "index.html")
 			case "/dcsd-2023-mlo", "/dcsd-2023-mlo/":
-				http.ServeFile(w, r, "dcsd-2023-mlo.html")
+				http.ServeFile(w, r, "dcsd-2023-mlo/presentation.html")
 			case "/smart-health-cards", "/smart-health-cards/":
 				switch r.Method {
 				case http.MethodGet:
