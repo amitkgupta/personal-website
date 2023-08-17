@@ -171,10 +171,19 @@
       <li><a href="https://resources.finalsite.net/images/v1689025174/bvsdorg/xgdzp3hcnecghqn08w3r/2023-2024BVEAPaySchedule-SalarySchedulexlsx-2023-24.pdf">Boulder Valley</a></li>
       <li><a href="https://www.cherrycreekschools.org/cms/lib/CO50000184/Centricity/Domain/1417/2023-2024%20Certified%20Salary%20ScheduleTA.pdf">Cherry Creek</a></li>
     </ul>
-    <h2>Student-Teacher Ratios</h2>
-    <p class="coming-soon">COMING SOON: Presentation and analysis of student-teacher ratios, and potential discussion of expected impact on teacher salaries.</p>
     <h2>Attrition Risk</h2>
-    <p class="coming-soon">COMING SOON: Presentation and analysis of historical turnover rates compared to other districts, and potential discussion of how recent drops in pay competitiveness might impact future turnover rates.</p>
+    <p>It stands to reason that uncompetitive pay would lead to attrition, meaning DCSD would struggle to retain teachers, especially top teachers. If a teacher departs, where might they go?</p>
+    <ul>
+      <li>Remain in the profession, but change employers to a competing district</li>
+      <li>Remain in the profession, but change employers to a private school</li>
+      <li>Remain in the profession, but change employers to one out of state</li>
+      <li>Leave the profession, continuing to work in some other capacity</li>
+      <li>Retire</li>
+    </ul>
+    <p>Retirement is natural, and is likely driven more by the age of a teacher than their pay. Some amount of teachers leaving the profession altogether is also natural. Demand for teachers is generally proportional to the number of school-aged children, and their numbers are decreasing as part of a broader demographic trend affecting all highly advanced countries. <a href="https://www.populationpyramid.net/united-states-of-america/">The US is no exception</a>. And at a more local level, Douglas, Jefferson, and Boulder counties have all had a <a href="https://storage.googleapis.com/maps-static/TtlChg1019_U18.png">decrease in the child population from 2010 to 2019</a>. Those three counties plus Denver and Arapahoe counties are projected to see a <a href="https://storage.googleapis.com/maps-static/PctChg1930_U18.png">decrease in the child population from 2019 to 2030</a>.</p>
+    <p class="opinion">One plausible dynamic we might see is that uncompetitive pay leads to an increased turnover rate amongst teachers in DCSD, especially amongst top teachers. Most likely these departing teachers would go to competing nearby districts. Those districts can't just hire increasingly more teachers <b>and</b> keep pay high, especially given demographic shifts in the child population, without also losing some teachers. Those districts would have lower, relatively more stable turnover rates (slowly shrinking to slowly growing), perhaps especially amongst lower-performing teachers. It's hard to find data on turnover rates by performance level, but we can look at teacher turnover rates in general:</p>
+    <iframe id="teacher-turnover-chart" width="764" height="472" seamless frameborder="0" scrolling="no"></iframe>
+    <p>DCSD is at near-all-time highs for its annual teacher turnover rate, the <i>rate</i> at which the turnover rate is growing, and for how high it sits up amongst the range of its peer districts' annual teacher turnover rates. This data seems very consistent with the scenario of high teacher turnover in DCSD among top performers, balanced with moderate teacher turnover in peer districts.</p>
   </div>
 
   <div class="slide" id="slide5">
@@ -266,7 +275,7 @@
 
   <div class="slide" id="slide9">
     <h1>Methodology</h1>
-    <p>The charts in this presentation were created with and served from <a href="https://docs.google.com/spreadsheets/d/163VeG9P70Zb7Fxby2bQIoi8fY7SwZNH_i5RLGsSIquA/edit#gid=0">this spreadsheet</a>. All data used in that spreadsheet were obtained from the Colorado Department of Education (CDE) website. The data on average teacher salaries was manually copied from CDE into the spreadsheet; the data on expenditures was downloaded in CSV format, processed, and then uploaded into the spreadsheet. The un-processed CSV files downloaded from CDE and the source code for processing the CSV files are shared publicly:</p>
+    <p>The charts in this presentation were created with and served from <a href="https://docs.google.com/spreadsheets/d/163VeG9P70Zb7Fxby2bQIoi8fY7SwZNH_i5RLGsSIquA/edit#gid=0">this spreadsheet</a>. All data used in that spreadsheet were obtained from the Colorado Department of Education (CDE) website. The data on average teacher salaries was manually copied from CDE into the spreadsheet; the data on turnover rates and expenditures was downloaded in XLS format, processed and output into CSV format, and then uploaded into the spreadsheet. The un-processed XLS files downloaded from CDE and the source code for processing the CSV files are shared publicly:</p>
     <ul>
       <li><a href="https://github.com/amitkgupta/personal-website/tree/master/dcsd-2023-mlo/data">CSV files</a></li>
       <li><a href="https://github.com/amitkgupta/personal-website/blob/master/dcsd-2023-mlo/process.py">code</a></li>
@@ -298,6 +307,7 @@
       $("#operations-and-maintenance-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=1686714297&amp;format=interactive");
       $("#other-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=945705865&amp;format=interactive");
       $("#other-support-expenditure-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=1918051215&amp;format=interactive");
+      $("#teacher-turnover-chart").attr("src", "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7seL2rD_bAKHHp9v_pw09JAPexKqasT2fAINtgwA3jyfN13TC_-_7KYmqyhR_tCLyBsu8o_6pWk8g/pubchart?oid=260603800&amp;format=interactive");
   });
   </script>
   <script src="//code.tidio.co/exsnt8iwpmc1nwqjtc2l7uirirjcg1fo.js" async></script>
