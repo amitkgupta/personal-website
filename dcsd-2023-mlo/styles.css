@@ -42,6 +42,7 @@ nav li {
   display: none;
   padding: 40px;
   margin-left: 290px;
+  margin-bottom: 400px;
 }
 
 .tax-calculator-container tr td:first-child {
