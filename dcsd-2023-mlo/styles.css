@@ -96,3 +96,13 @@ table, th, td {
   background-color: palegreen;
   padding: 1em 2em;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
