@@ -23,10 +23,6 @@ window.onload = function() {
     taxOutput.textContent = result.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   };
 
-  homeValueInput.onmouseup = function() {
-    showSlide(2);
-  };
-
   document.addEventListener('keydown', function(event) {
     if (document.activeElement === homeValueInput) {
       return;
