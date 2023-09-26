@@ -51,6 +51,13 @@ func main() {
 				return
 			}
 
+			if r.Host == "www.akgupta.ca" {
+				u := r.URL
+				u.Host = "akgupta.ca"
+				http.Redirect(w, r, u.String(), http.StatusMovedPermanently)
+				return
+			}
+
 			switch r.URL.Path {
 			case "/android-icon-144x144.png",
 				"/android-icon-192x192.png",
