@@ -1,49 +1,7 @@
-* { font-family: 'Open Sans', sans-serif; }
+* { font-family: 'Gothic', sans-serif; }
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #f8f9fa;
-  padding: 20px;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-nav li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  cursor: pointer;
-  height: 22px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background-color: #007bff;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.active .dot {
-  background-color: #ff0000;
-}
-
-.active {
-  color: #ff0000;
-}
-
-.slide {
-  display: none;
-  padding: 40px;
-  margin-left: 290px;
-  margin-bottom: 400px;
+body {
+  margin: 10% 15%;
 }
 
 .tax-calculator-container tr td:first-child {
@@ -55,14 +13,25 @@ nav li {
 }
 
 h1 {
-  text-align: center;
-  font-size: 32px;
+  font-size: 2.5em;
   font-weight: bold;
-  margin-bottom: 60px;
+  text-align: center;
 }
 
-p {
-  font-size: 18px;
+h2 {
+  font-size: 1.9em;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+section {
+  margin-bottom: 3em;
+}
+
+p, li {
+  font-size: 1.2em;
   line-height: 1.5;
 }
 
@@ -77,24 +46,9 @@ table, th, td {
 .tax-calculator-container table {
   border: none;
 }
-.nav-explainer td {
-  border: none;
-  text-align: center;
-  padding: 1em;
-}
-.nav-explainer table {
-  border: none;
-  text-align: center;
-  padding: 1em;
-}
 
 .opinion {
   background-color: lightgoldenrodyellow;
-  padding: 1em 2em;
-}
-
-.coming-soon {
-  background-color: palegreen;
   padding: 1em 2em;
 }
 
@@ -106,4 +60,10 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.e-mail:before {
+    content: attr(data-website) "\0040" attr(data-user);
+    unicode-bidi: bidi-override;
+    direction: rtl;
 }
