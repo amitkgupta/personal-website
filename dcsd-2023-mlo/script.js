@@ -4,7 +4,7 @@ window.onload = function() {
 
   homeValueInput.oninput = function() {
     const value = parseInt(homeValueInput.value);
-    const result = 66000000 * value * 0.06765 / 8144600544;
+    const result = value * 0.06765 * 5.912 / 1000;
     taxOutput.textContent = result.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   };
 };

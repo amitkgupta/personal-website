@@ -40,9 +40,89 @@
 
   <section id="what-does-it-cost">
     <h2>≫ What does it cost?</h2>
-    <p>DCSD's proposal aims to raise an additional $66.0M annually via the MLO increase. Most residents will want to know the bottom line: how much more will residents have to pay out of pocket in property taxes for this? The math is simple: the share of the $66.0M a resident will owe is equal to the share of the the total Douglas County property value that they own.</p>
-    <p>For example, if one owns property worth $600k (prior to the <a target="_blank" href="https://www.douglas.co.us/assessor/2023-2024-property-valuation/">expected assessment increases</a>), they will pay an extra $328.92 annually in property taxes if the MLO initiative passes. If one's property is worth $1.2M, they will pay an extra $657.84 annually. Of course, if the MLO initiative fails, then it will not cause an increase to property taxes.</p>
-    <p>Enter a property value (prior to assessment increases) to see how your annual tax burden will increase if this initiative passes. NOTE: This information will not be stored or seen by anyone other than you.</p>
+    <p>DCSD's proposal aims to raise an additional $66.0M annually via the MLO increase. Most residents will want to know the bottom line: how much more will residents have to pay out of pocket in property taxes for this? Very roughly speaking, the share of the $66.0M a property owner will be responsible for paying is proportional to the share of the county's total property value that they own. However, several factors make reailty more complicated than that, including:</p>
+    <ul>
+      <li>Net new property developments will decrease existing property owners' share of the total property value, and thus total tax burden, compared to previous years.</li>
+      <li>Different rates of value increase between different properties imply different rates of tax burden increase between different properties.</li>
+      <li>In Colorado, not all properties are taxed at the same rate per dollar of property value; in particular, residential properties are taxed at a lower rate.</li>
+      <li>State level ballot measures like Proposition HH will change how taxes are calculated if passed.</li>
+    </ul>
+    <p>That said, according to slide 24 of <a target="_blank" href="https://douglaspublic.ic-board.com/attachments/c3503220-4713-4596-b651-177a017be064.pdf">this presentation from DCSD</a>, it is estimated that an additional 5.912 mills will need to be levied assuming an average increase of 35% in total property valuations. This means a residential property valued at $1M after the current assessment increases will owe an additional $399.95.</p>
+    <p>Enter a property value (after assessment increases) in the calculator below to see an estimate of how your annual tax burden will increase if this initiative passes. You can find the 2023 "Actual Value" for your property using the Douglas County Assessor's search tool <a target="_blank" href="https://www.douglas.co.us/assessor/#/">here</a>. NOTE: This information will not be stored or seen by anyone other than you.</p>
+    <div class="tax-calculator-container">
+      <table style="margin:auto;">
+        <tr>
+          <td></td>
+          <td>Your 2023 actual property value:</td>
+          <td><input type="number" id="home-value-input" min="1" max="100000000" step="1" placeholder="$1,000,000"></td>
+        </tr>
+        <tr>
+          <td>x</td>
+          <td>Assessment rate:</td>
+          <td><a target="_blank" href="https://www.douglas.co.us/assessor/residential-property-tax-calculations/">6.765%</a></td>
+        </tr>
+        <tr>
+          <td>x</td>
+          <td>Additional mills needed:</td>
+          <td>5.912</td>
+        </tr>
+        <tr>
+          <td>÷</td>
+          <td></td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td>=</td>
+          <td>Annual property tax increase:</td>
+          <td><output id="tax-output">$399.95</output></td>
+        </tr>
+      </table>
+    </div>
+    <h3 id="reconciliation-with-dcsd-published-figures">Reconciliation with DCSD Published Figures</h3>
+    <p><b>DCSD has published figures stating tax rates will increase $20 per $100,000 in home value (see <a target="_blank" href="https://funding.dcsdk12.org/bond-overview">here</a>). DCSD has published figures stating tax burdens will increase $200 for a $1M home (see <a target="_blank" href="https://funding.dcsdk12.org/mlo-bond/infographics">here</a>). How do these statements reconcile with the $399.95 figure above?</b></p>
+    <p>There is very little information available to the public to understand how these figures were determined. Reading between the lines, it appears that the logic used to figure the rate increase of $20 per $100,000 of home value is valid but there is some mistake somewhere and the resulting figure is not quite accurate. More concerning, however, is that it appears the logic used to figure the burden increase of $200 for a $1M home is not valid and the resulting figure might be significantly inaccurate; there's a big difference between owing $200 and owing $399.95 so at least one of these is wildly inaccurate. NOTE: Even though the $399.95 figure is presented with greater <i>precision</i> (i.e. more decimal places) than the $200, that alone does not imply that it's more accurate.</p>
+    <p>Despite the lack of public information, it's important to try to understand these figures because, at the end of the day, this is what will be coming out of taxpayers' pockets. In order to understand the rate increase, there are first three important things to note:</p>
+    <ul>
+      <li>There is already an MLO in effect from previous years' elections; this year's ballot initiative 5A seeks to further increase it. Since there is already one in effect, taxpayers are already paying for it, and mills are already levied to collect those tax revenues.</li>
+      <li>Property values will be increasing; as such, the number of mills required to raise the same fixed dollar amount of tax revenue decreases correspondingly. In particular, if 5A fails, and DCSD only continues to collect revenue for the existing MLO, the number of mills required (and hence the effective tax rate per $100,000 of home value) will decrease to result in the tax burden, and hence collected tax revenues, to remain unchanged.</li>
+      <li>Most of the district's published figures include what happens if 5B passes as well, they typically don't present the impact of 5A alone unlike this article which is exclusively focused on 5A.</li>
+    </ul>
+    <p>Now the increase to the effective tax rate resulting from 5A (and 35% property value increases) can be figured as follows:</p>
+    <ul>
+      <li>Mills levied for current MLO, prior to property value increases: 9.050</li>
+      <li>Mills required for current MLO (without 5A), after assumed 35% property value increases: 9.050 ÷ 1.35 = 6.704</li>
+      <li>Additional mills required for MLO increase (5A), after assumed 35% property value increases: 5.912</li>
+      <li>Total mills required for MLO if 5A passes, after assumed 35% propety value increases: 5.912 + 6.704 = 12.616</li>
+      <li>Change in mills for all MLO (new and existing) if 5A passes, after assumed 35% propety value increases: 12.616 - 9.050 = 3.566</li>
+      <li>Change in tax rate per dollar of assessed property value: 3.566 ÷ 1000 = $0.003566</li>
+      <li>Change in tax rate per dollar of actual property value: $0.003566 x 6.765% = $0.00024</li>
+      <li>Change in tax rate per $100,000 of actual property value: $0.00024 x 100,000 = $24</li>
+    </ul>
+    <p>It's also worth noting the change in effective tax rate per $100,000 of actual property value if 5A fails: (6.704 - 9.050) ÷ 1000 x 6.765% x 100,000 = -$16. It bears repeating that this doesn't imply that your tax <b>burden</b> will decrease, it's just the effective tax <b>rate</b> which is decreasing to counterbalance the effective of the taxable property values increasing. All else being equal, your tax burden for MLOs will neither increase nor decrease if 5A fails.</p>
+    <p>This $24 figure matches what DCSD has published on slide 24 <a target="_blank" href="https://douglaspublic.ic-board.com/attachments/c3503220-4713-4596-b651-177a017be064.pdf">here</a> where it pertains to 5A alone, independent of 5B. We can try to apply the same logic as above to understand the impact of 5B:</p>
+    <ul>
+      <li>Mills levied for current bond redemption, prior to property value increases: 6.7</li>
+      <li>Mills required for current bond redemption (without 5B), after assumed 35% property value increases: 6.7 ÷ 1.35 = 5.0</li>
+      <li>Additional mills required for new bond (5B), after assumed 35% property value increases: 0.75</li>
+      <li>Total mills required for all bonds if 5B passes, after assumed 35% propety value increases: 5.0 + 0.75 = 5.75</li>
+      <li>Change in mills for all bonds (new and existing) if 5B passes, after assumed 35% propety value increases: 5.75 - 6.7 = -0.95</li>
+      <li>Change in tax rate per dollar of assessed property value: -0.95 ÷ 1000 = -$0.00095</li>
+      <li>Change in tax rate per dollar of actual property value: -$0.00095 x 6.765% = -$0.0000064</li>
+      <li>Change in tax rate per $100,000 of actual property value: -$0.0000064 x 100,000 = -$6.40</li>
+    </ul>
+    <p>On slide 25 of that same presentation, DCSD publishes a different figure, -$4. Again, since DCSD's methodology is not completely transparent, it's not clear why the logic above works to explain DCSD's MLO figures on slide 24 but the same logic fails to be consistent with the bond figures on slide 25. This is where it appears there was some mistake somewhere and DCSD's figure of -$4 is not quite accurate. The combined impact of 5A and 5B on the effective tax rate is an increase of $24 - $6.40 = $17.60 per $100,000 of home value, somewhat different than DCSD's published figure of $24 - $4 = $20. It's not a trivial discrepancy, but not an enormous one either.</p>
+    <p>Turning to the tax burden impact, the discrepancy is enormous. DCSD states the tax burden increase for an owner of a $1M property would be $200. It seems this was determined by simply multiplying their effective tax rate increase of $20 per $100,000 by the home value of $1M, which is indeed $200. However, this is not valid. In other words:</p>
+    <p style="text-align: center;">(new tax rate - old tax rate) x (new property value) ≠ tax burden change</p>
+    <p>The correct way to compute this is:</p>
+    <p style="text-align: center;">(new tax rate x new property value) - (old tax rate x old property value) = tax burden change</p>
+    <p>Since the discrepancy between $399.95 and $200 is so large, it's worth sanity-checking the $399.95 figure. This was calculated using the districts published figures about how the current mills levied for the existing MLO, and the expected changes to the mills depending on whether 5A passes or fails. But there's an alternative "outside-in" approach to calculating the tax burden that doesn't look at mills. Consider the following assumptions:</p>
+    <ul>
+      <li>Treat all properties as residential properties, for simplicity</li>
+      <li>Ignore the impact of new property growth, since for a county like Douglas, it's only likely to grow by single-digit percentages in a two-year span (since the last assessments), and since it seems DCSD's calculations also ignore this</li>
+      <li>Ignore the impact of other ballot measures such as HH, since it seems hard to believe this would have major double-digit percentage impacts on MLO tax burden, and since DCSD's calculations also appear to ignore this as well</li>
+      <li>Assume that all properties increase in value at the same rate of 35%, to avoid the complexity of factoring in the different rates of value increase for different properties, and because DCSD's calculations seem to make this assumption as well.</li>
+    </ul>
+    <p>Then a property valued at $1M after the assessment increases would be valued at $1M ÷ 1.35 = $740,740.74 prior to the assessment increases, and the tax burden increase for this property would be is:</p>
     <div class="tax-calculator-container">
       <table style="margin:auto;">
         <tr>
@@ -52,8 +132,8 @@
         </tr>
         <tr>
           <td>x</td>
-          <td>Your property value:</td>
-          <td><input type="number" id="home-value-input" min="1" max="100000000" step="1" placeholder="$540,400"></td>
+          <td>Your property value prior to assessment increases:</td>
+          <td>$740,740.74</td>
         </tr>
         <tr>
           <td>x</td>
@@ -62,18 +142,18 @@
         </tr>
         <tr>
           <td>÷</td>
-          <td>Total assessed value:</td>
+          <td>Total assessed value prior to assessment increases:</td>
           <td><a target="_blank" href="https://www.cde.state.co.us/cdefinance/sfmilllevy">$8,144,600,544.00</a></td>
         </tr>
         <tr>
           <td>=</td>
           <td>Annual property tax increase:</td>
-          <td><output id="tax-output">$296.25</output></td>
+          <td>$406.08</td>
         </tr>
       </table>
     </div>
-    <p>In addition to understanding the bottom line of how much additional property tax you'll need to pay annually if the MLO initiative passes, it's worth considering how property tax <i>rates</i> will change. You might have the following train of thought: "my property value is going up significantly this year, so, at least on paper, I'm significantly wealthier; if I'm wealthier then I should pay my fair share, but how much of a change to property taxes is <i>fair</i>?" One way to think about this is to look at how the MLO initiative would impact property tax <i>rates</i>, i.e. the amount of property tax owed per unit of home value.</p>
-    <p>The math here is more complex, and it depends on how exactly property values change with the new assessments. But assuming a 35% total assessment increase for all properties, the property tax rate will increase $2.47 per $10k of property value if the MLO initiative passes, and it will actually decrease $1.59 per $10k of property value if the MLO initiative fails. Note, that $1.59 decrease doesn't mean the amount of property tax you owe will decrease, it just reflects the fact that the effect of a 35% property value increase and the effect of a $1.59 per $10k property tax rate decrease end up canceling out to result in no increase to the final amount of property taxes owed (attributable to the MLO).</p>
+    <p>This figure of $406.08 is extremely close to the figure of $399.95 computed above.</p>
+    <p class="opinion">I believe that the increased tax burden for the MLO increase alone (5A) for a $1M (after assessment increases) is closer to $400 rather than DCSD's published figure of $200. I have no reason to believe this discrepancy is due to any deceitful intentions on behalf of the school district. It could be an honest mistake; going from believing the rate will change $20 per $100,000 of home value to concluding that the tax burden will change by $200 for a $1M home is an easy mistake to make. I think it is reckless to dismiss 5A on the speculation that it's possible there's some deceit in how DCSD is presenting 5A. I think it is possible to independently analyze the nature of the teacher pay problem in the district, and have done so in the analysis that follows. I think it's easy to independently verify whether money is being spent on teacher pay using the same Colorado Department of Education financial transparency data that is used to analyze the state of the present problem, and trust that this money won't be misspent even if one doesn't completely trust everything DCSD tells the public. And it's incumbent on voters to do their own cost-benefit analysis of 5A whether you believe DCSD's cost figures, the figures presented in this analysis, or something else, and not just dismiss the whole issue because you don't trust DCSD's figures.</p>
   </section>
 
   <section id="what-will-that-fund">
