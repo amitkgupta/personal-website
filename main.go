@@ -96,6 +96,8 @@ func main() {
 				http.ServeFile(w, r, "index.html")
 			case "/dcsd-2023-mlo", "/dcsd-2023-mlo/":
 				http.ServeFile(w, r, "dcsd-2023-mlo/presentation.html")
+			case "/dcsd-2023-mlo-cost", "/dcsd-2023-mlo-cost/":
+				http.ServeFile(w, r, "dcsd-2023-mlo/cost-follow-up.html")	
 			case "/smart-health-cards", "/smart-health-cards/":
 				switch r.Method {
 				case http.MethodGet:
