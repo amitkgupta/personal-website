@@ -88,6 +88,7 @@ func main() {
 				"/ms-icon-310x310.png",
 				"/ms-icon-70x70.png",
 				"/dcsd-2023-mlo/assessor-mills.png",
+				"/dcsd-2023-mlo/cost-infographic.png",
 				"/dcsd-2023-mlo/styles.css",
 				"/dcsd-2023-mlo/script.js":
 				http.ServeFile(w, r, r.URL.Path[1:])
